@@ -10,4 +10,12 @@ spring:
 
 weather-stack:
   api-url: http://api.weatherstack.com/current
-  api-key: ${API-KEY:default} #.env içerisine bakacak api key için.
+  api-key: ${API_KEY:default} #.env içerisine bakacak api key için.
+
+resilience4j:
+  ratelimiter:
+    instances:
+      basic:
+        limit-for-period: 10
+        limit-refresh-period: 1m
+        timeout-duration: 10s
